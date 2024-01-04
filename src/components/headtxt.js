@@ -1,15 +1,15 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
 
 const Headtxt = ({ message }) => {
     return (
         <View>
             <Text style={styles.headtext}>{message}</Text>
         </View>
-    )
-}
+    );
+};
 
-export default Headtxt
+export default Headtxt;
 
 const styles = StyleSheet.create({
     headtext: {
@@ -17,4 +17,4 @@ const styles = StyleSheet.create({
         fontWeight: 'normal',
         color: '#fff',
     },
-})
+});

@@ -1,15 +1,11 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
 
 const Btn = ({ children }) => {
-    return (
-        <View style={styles.btn}>
-            {children}
-        </View>
-    )
-}
+    return <View style={styles.btn}>{children}</View>;
+};
 
-export default Btn
+export default Btn;
 
 const styles = StyleSheet.create({
     btn: {
@@ -22,4 +18,4 @@ const styles = StyleSheet.create({
         margin: 20,
         borderRadius: 20,
     },
-})
+});

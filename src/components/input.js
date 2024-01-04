@@ -1,20 +1,21 @@
-import { StyleSheet, TextInput, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, TextInput, View } from 'react-native';
+import React from 'react';
 
 const Input = ({ placeholder, type, label }) => {
     return (
         <View>
             <TextInput
                 placeholder={placeholder}
-                placeholderTextColor={"#fff"}
+                placeholderTextColor={'#fff'}
                 keyboardType={type}
                 aria-labelledby={label}
-                style={styles.input} />
+                style={styles.input}
+            />
         </View>
-    )
-}
+    );
+};
 
-export default Input
+export default Input;
 
 const styles = StyleSheet.create({
     input: {
@@ -26,4 +27,4 @@ const styles = StyleSheet.create({
         paddingLeft: 20,
         color: '#fff',
     },
-})
+});

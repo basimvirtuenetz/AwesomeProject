@@ -1,15 +1,11 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
 
 const Items = ({ children }) => {
-    return (
-        <View style={styles.itemsview}>
-            {children}
-        </View>
-    )
-}
+    return <View style={styles.itemsview}>{children}</View>;
+};
 
-export default Items
+export default Items;
 
 const styles = StyleSheet.create({
     itemsview: {
@@ -21,4 +17,4 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
         alignItems: 'center',
     },
-})
+});
