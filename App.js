@@ -8,7 +8,7 @@ import Mainwrapp from './src/components/mainwrapp';
 import Headtxt from './src/components/headtxt';
 import Items from './src/components/items';
 import Btn from './src/components/btn';
-import Input from './src/components/input';
+import Input from './src/components/input'
 
 const reducer = (state, action) => {
   try {
