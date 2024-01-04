@@ -1,5 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import React from 'react';
+import { Colors } from '../colors/colors';
 
 const Btn = ({ children }) => {
     return <View style={styles.btn}>{children}</View>;
@@ -12,7 +13,7 @@ const styles = StyleSheet.create({
         width: '50%',
         height: 40,
         borderWidth: 1,
-        borderColor: 'red',
+        borderColor: Colors.red,
         justifyContent: 'center',
         alignItems: 'center',
         margin: 20,

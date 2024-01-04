@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
+import { Colors } from '../colors/colors';
 
 const Items = ({ children }) => {
     return <View style={styles.itemsview}>{children}</View>;
@@ -11,7 +12,7 @@ const styles = StyleSheet.create({
     itemsview: {
         width: '60%',
         height: 200,
-        backgroundColor: 'grey',
+        backgroundColor: Colors.grey,
         borderRadius: 30,
         margin: 20,
         justifyContent: 'space-evenly',
