@@ -8,7 +8,7 @@ import Mainwrapp from './src/components/mainwrapp';
 import Headtxt from './src/components/headtxt';
 import Items from './src/components/items';
 import Btn from './src/components/btn';
-import Input from './src/components/input'
+import Input from './src/components/input';
 
 const reducer = (state, action) => {
   try {
@@ -23,6 +23,7 @@ const reducer = (state, action) => {
 };
 
 const App = () => {
+  const [namw, useName] = React.useState("");
   const [count, setCount] = React.useState(0);
   const [prevCount, setPrevCount] = React.useState(count);
   const [trend, setTrend] = React.useState(null);
