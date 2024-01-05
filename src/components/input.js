@@ -1,18 +1,16 @@
-import { StyleSheet, TextInput, View } from 'react-native';
+import { StyleSheet, TextInput } from 'react-native';
 import React from 'react';
 import { Colors } from '../colors/colors';
 
 const Input = ({ placeholder, type, label }) => {
     return (
-        <View>
-            <TextInput
-                placeholder={placeholder}
-                placeholderTextColor={'#fff'}
-                keyboardType={type}
-                aria-labelledby={label}
-                style={styles.input}
-            />
-        </View>
+        <TextInput
+            placeholder={placeholder}
+            placeholderTextColor={'#fff'}
+            keyboardType={type}
+            aria-labelledby={label}
+            style={styles.input}
+        />
     );
 };
 

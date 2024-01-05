@@ -1,9 +1,9 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { Colors } from '../colors/colors';
 
-const Btn = ({ children }) => {
-    return <View style={styles.btn}>{children}</View>;
+const Btn = ({ children, onPress }) => {
+    return <TouchableOpacity onPress={onPress} style={styles.btn}>{children}</TouchableOpacity>;
 };
 
 export default Btn;
