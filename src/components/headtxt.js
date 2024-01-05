@@ -1,12 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import React from 'react';
 import { Colors } from '../colors/colors';
 
 const Headtxt = ({ message }) => {
     return (
-        <View>
-            <Text style={styles.headtext}>{message}</Text>
-        </View>
+        <Text style={styles.headtext}>{message}</Text>
     );
 };
 

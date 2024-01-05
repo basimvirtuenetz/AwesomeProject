@@ -1,14 +1,12 @@
-import {
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
 import React from 'react';
-import Mainwrapp from './src/components/mainwrapp';
-import Headtxt from './src/components/headtxt';
-import Items from './src/components/items';
-import Btn from './src/components/btn';
-import Input from './src/components/input';
+import {
+  Wrapper,
+  Title,
+  Btn,
+  Input,
+  Items,
+  Bodytxt,
+} from './src/components/styledComp';
 
 const reducer = (state, action) => {
   try {
@@ -23,7 +21,6 @@ const reducer = (state, action) => {
 };
 
 const App = () => {
-  const [namw, useName] = React.useState("");
   const [count, setCount] = React.useState(0);
   const [prevCount, setPrevCount] = React.useState(count);
   const [trend, setTrend] = React.useState(null);
@@ -47,36 +44,31 @@ const App = () => {
   }, [count]);
 
   return (
-    <Mainwrapp>
-      <Headtxt message={"Header"} />
+    <Wrapper>
+      <Title>Hello World, this is my first styled component!</Title>
+
       <Items>
-        <Headtxt message={prevCount} />
-        <Headtxt message={trend} />
+        <Title>{prevCount}</Title>
+        <Title>{trend}</Title>
       </Items>
       <Input
-        placeholder={"Password"}
-        type={"visible-password"}
+        placeholder={'Password'}
+        type={'visible-password'}
         label={passwordHintId}
       />
-      <Text id={passwordHintId}>Please Enter 6 digit password</Text>
-      <Btn>
-        <TouchableOpacity onPress={handleCount}>
-          <Text>Reset counter</Text>
-        </TouchableOpacity>
+      <Bodytxt id={passwordHintId}>Please Enter 6 digit password</Bodytxt>
+      <Btn onPress={handleCount}>
+        <Bodytxt>Reset counter</Bodytxt>
       </Btn>
-      <Btn>
-        <TouchableOpacity
-          onPress={() => {
-            dispatch({ type: 'increase' });
-          }}>
-          <Text>Increment Age</Text>
-        </TouchableOpacity>
+      <Btn
+        onPress={() => {
+          dispatch({ type: 'increase' });
+        }}>
+        <Bodytxt>Increment Age</Bodytxt>
       </Btn>
-      <Headtxt message={state.age} />
-    </Mainwrapp>
+      <Title>{state.age}</Title>
+    </Wrapper>
   );
 };
 
 export default App;
-
-const styles = StyleSheet.create({});
