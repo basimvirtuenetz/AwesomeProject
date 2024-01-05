@@ -3,35 +3,45 @@ import styled from "styled-components/native";
 
 export const Wrapper = styled.View({
     flex: 1,
-    padding: 20,
-    alignItems: 'center'
+    padding: 30,
+    backgroundColor: Colors.black
 });
 export const Title = styled.Text({
+    alignSelf: 'center',
+    textAlign: 'center',
     fontSize: 20,
-    color: Colors.white,
+    fontWeight: 'bold',
+    color: Colors.pvoilet,
+    marginTop: 10,
+    marginBottom: 50
 });
 export const Btn = styled.TouchableOpacity({
+    alignSelf: 'center',
     width: '50%',
     height: 40,
-    borderWidth: 1,
-    borderColor: Colors.pvoilet,
+    backgroundColor: Colors.pvoilet,
     justifyContent: 'center',
     alignItems: 'center',
     margin: 20,
     borderRadius: 20,
 });
 export const Input = styled.TextInput({
+    alignSelf: 'center',
     width: 270,
     height: 50,
     borderWidth: 1,
-    borderColor: Colors.white,
+    borderColor: Colors.grey,
+    backgroundColor: Colors.grey,
     borderRadius: 10,
     paddingLeft: 20,
     color: Colors.white,
+    marginTop: 20,
+    marginBottom: 20
+
 });
 export const Bodytxt = styled.Text({
     fontSize: 16,
-    color: Colors.pvoilet,
+    color: Colors.white,
 });
 export const Items = styled.View({
     width: '60%',
@@ -41,4 +51,4 @@ export const Items = styled.View({
     margin: 20,
     justifyContent: 'space-evenly',
     alignItems: 'center',
-})
+});
