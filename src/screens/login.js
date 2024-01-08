@@ -1,48 +1,68 @@
 import React from 'react';
-import { Bodytxt, Btn, Input, Title, Wrapper } from '../components/styledComp';
+import { Input, Title, Btn, SubTitle } from '../components/styledComp';
 import { Colors } from '../colors/colors';
-import { Alert } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { StyleSheet } from 'react-native';
+import { AuthContext } from '../../App';
 
-const Login = ({ navigation }) => {
-    const [name, setName] = React.useState('');
-    const [pass, setPass] = React.useState('');
+const Login = () => {
+    const [username, setUsername] = React.useState('');
+    const [password, setPassword] = React.useState('');
 
-    const handleLogin = async () => {
-        if (!name || !pass) {
-            Alert.alert('Fields Emplty');
-        } else {
-            navigation.navigate('Data', { name });
-        }
-    };
-    const handleGuest = () => {
-        navigation.navigate('Data', { name });
-    };
+    const { signIn } = React.useContext(AuthContext);
 
     return (
-        <Wrapper>
+        <KeyboardAwareScrollView style={styles.container}>
             <Title>Create New Account!</Title>
             <Input
-                placeholder="Enter your Name"
+                placeholder='Enter your first-name'
                 placeholderTextColor={Colors.white}
-                keyboardType="default"
-                value={name}
-                onChangeText={text => setName(text)}
-            />
+                enterKeyHint='next'
+                cursorColor={Colors.white}
+                value={username}
+                onChangeText={setUsername} />
             <Input
-                placeholder="Enter Password"
+                placeholder='Enter your last-name'
                 placeholderTextColor={Colors.white}
-                keyboardType="visible-password"
-                value={pass}
-                onChangeText={text => setPass(text)}
-            />
-            <Btn onPress={() => handleLogin()}>
-                <Bodytxt>Login</Bodytxt>
+                enterKeyHint='next'
+                cursorColor={Colors.white} />
+            <Input
+                placeholder='Enter your phone-number'
+                placeholderTextColor={Colors.white}
+                keyboardType='number-pad'
+                enterKeyHint='next'
+                cursorColor={Colors.white} />
+            <Input
+                placeholder='Enter your email'
+                placeholderTextColor={Colors.white}
+                enterKeyHint='next'
+                keyboardType='email-address'
+                cursorColor={Colors.white} />
+            <Input
+                placeholder='Enter your password'
+                placeholderTextColor={Colors.white}
+                enterKeyHint='next'
+                keyboardType='visible-password'
+                cursorColor={Colors.white}
+                value={password}
+                onChangeText={setPassword} />
+            <Input
+                placeholder='Confirm your password'
+                placeholderTextColor={Colors.white}
+                enterKeyHint='go'
+                keyboardType='visible-password'
+                cursorColor={Colors.white} />
+            <Btn onPress={() => signIn({ username, password })}>
+                <SubTitle>Done</SubTitle>
             </Btn>
-            <Btn onPress={() => handleGuest()}>
-                <Bodytxt>Guest</Bodytxt>
-            </Btn>
-        </Wrapper>
+        </KeyboardAwareScrollView>
     );
 };
 
 export default Login;
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        padding: 30
+    }
+})

@@ -1,76 +1,66 @@
 import React from 'react';
 import {
-    Wrapper,
+    Scroll,
     Title,
-    Btn,
-    Input,
+    Wrapper,
     Items,
-    Bodytxt,
+    SubTitle,
+    RowScroll,
+    RowItems,
+    Seperater,
 } from '../components/styledComp';
-import { Colors } from '../colors/colors';
-
-const reducer = (state, action) => {
-    try {
-        if (action.type === 'increase') {
-            return {
-                age: state.age + 1,
-            };
-        }
-    } catch (error) {
-        console.log(error);
-    }
-};
+import { StyleSheet, RefreshControl } from 'react-native';
+import { DATA } from '../components/reuseablecomps/data';
 
 const Main = () => {
-    const [count, setCount] = React.useState(0);
-    const [prevCount, setPrevCount] = React.useState(count);
-    const [trend, setTrend] = React.useState(null);
-    const passwordHintId = React.useId();
-    const [state, dispatch] = React.useReducer(reducer, { age: 23 });
+    const [refreshing, setRefreshing] = React.useState(false);
 
-    if (prevCount !== count) {
-        setPrevCount(count);
-        setTrend(count > prevCount ? 'Increasing' : 'Reseted');
-    }
-
-    const handleCount = () => {
-        setCount(0);
-    };
-
-    React.useEffect(() => {
-        const intervalId = setInterval(() => {
-            setCount(count + 1);
-        }, 1000);
-        return () => clearInterval(intervalId);
-    }, [count]);
+    const onRefresh = React.useCallback(() => {
+        setRefreshing(true);
+        setTimeout(() => {
+            setRefreshing(false);
+        }, 2000);
+    }, []);
 
     return (
         <Wrapper>
-            <Title>Hello World, this is my first styled component!</Title>
-
-            <Items>
-                <Title>{prevCount}</Title>
-                <Title>{trend}</Title>
-            </Items>
-            <Input
-                placeholder="Enter Password"
-                placeholderTextColor={Colors.white}
-                secureTextEntry
-                label={passwordHintId}
+            <Title>-: FlatList :-</Title>
+            <RowScroll
+                horizontal
+                pagingEnabled
+                showsHorizontalScrollIndicator={false}
+                data={DATA}
+                renderItem={items => (
+                    <RowItems>
+                        <SubTitle>{items.item.name}</SubTitle>
+                        <SubTitle>{items.item.des}</SubTitle>
+                    </RowItems>
+                )}
+                ItemSeparatorComponent={() => <Seperater></Seperater>}
             />
-            <Bodytxt id={passwordHintId}>Please Enter 6 digit password</Bodytxt>
-            <Btn onPress={handleCount}>
-                <Bodytxt>Reset counter</Bodytxt>
-            </Btn>
-            <Btn
-                onPress={() => {
-                    dispatch({ type: 'increase' });
-                }}>
-                <Bodytxt>Increment Age</Bodytxt>
-            </Btn>
-            <Title>{state.age}</Title>
+            <Title>-: ScrollView :-</Title>
+            <Scroll
+                refreshControl={
+                    <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+                }
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={styles.scrollItems}>
+                {DATA.map((data, index) => (
+                    <Items key={index}>
+                        <SubTitle>{data.name}</SubTitle>
+                        <SubTitle>{data.des}</SubTitle>
+                    </Items>
+                ))}
+            </Scroll>
         </Wrapper>
     );
 };
 
 export default Main;
+
+const styles = StyleSheet.create({
+    scrollItems: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+    },
+});
