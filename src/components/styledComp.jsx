@@ -2,15 +2,20 @@ import {Colors} from '../colors/colors';
 import styled from 'styled-components/native';
 
 export const Wrapper = styled.View({
-  flex: 1,
+  flex:1,
   padding: 20,
+});
+export const Header = styled.View({
+  width:'100%',
+  height:170,
+  padding:10,
+  justifyContent:'flex-end'
 });
 export const Title = styled.Text({
   fontSize: 26,
-  color: Colors.pvoilet,
-  textAlign: 'center',
-  marginVertical: 10,
-  fontWeight:'bold'
+  color: Colors.Dblue,
+  marginVertical: 6,
+  fontWeight:'bold',
 });
 export const Scroll = styled.ScrollView({
   flex: 2,
@@ -27,14 +32,16 @@ export const Items = styled.View({
 });
 export const SubTitle = styled.Text({
   fontSize: 16,
-  color: Colors.pvoilet,
+  color: Colors.Dblue,
   fontWeight: 'bold',
+  textAlign:'center'
 });
 export const RowScroll = styled.FlatList({
   flex: 1,
 });
 export const RowItems = styled.View({
-  width: 140,
+  
+  width: 120,
   height: 140,
   backgroundColor: Colors.white,
   borderRadius: 80,
@@ -54,16 +61,16 @@ export const Seperater = styled.View({
 export const Input = styled.TextInput({
   width: '100%',
   height: 50,
-  backgroundColor: Colors.grey,
-  color: Colors.white,
+  backgroundColor: Colors.white,
+  color: Colors.Dblue,
   borderRadius: 10,
   paddingLeft: 20,
   elevation: '8',
-  marginVertical: 20,
+  marginTop: 30,
 });
 export const Btn = styled.TouchableOpacity({
   width: 180,
-  height: 50,
+  height: 60,
   backgroundColor: Colors.white,
   borderRadius: 40,
   elevation: '8',
@@ -72,3 +79,27 @@ export const Btn = styled.TouchableOpacity({
   justifyContent:'center',
   alignItems:'center'
 });
+export const IconView = styled.Pressable({
+  width:40,
+  height:40,
+  justifyContent:"center",
+  alignItems:'center'
+});
+export const Active = styled.View({
+  width:30,
+  height:30,
+  backgroundColor:Colors.white,
+  borderRadius:30,
+  justifyContent:'center',
+  alignItems:'center',
+  elevation:'7'
+});
+export const ActiveBack = styled.View({
+  width:60,
+  height:60,
+  backgroundColor:Colors.Dblue,
+  borderRadius:60,
+  marginBottom:30,
+  justifyContent:"center",
+  alignItems:"center",
+})

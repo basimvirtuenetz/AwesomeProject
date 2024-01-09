@@ -15,13 +15,14 @@ export default Splash
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: Colors.pvoilet,
+        backgroundColor: Colors.Dblue,
         justifyContent: 'center',
         alignItems: "center"
     },
     heading: {
         fontSize: 36,
         color: Colors.white,
-        textAlign: 'center'
+        textAlign: 'center',
+        fontWeight: 'bold'
     }
 })

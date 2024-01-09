@@ -5,12 +5,10 @@ import {
     Wrapper,
     Items,
     SubTitle,
-    RowScroll,
-    RowItems,
-    Seperater,
 } from '../components/styledComp';
 import { StyleSheet, RefreshControl } from 'react-native';
 import { DATA } from '../components/reuseablecomps/data';
+import { Colors } from '../colors/colors';
 
 const Main = () => {
     const [refreshing, setRefreshing] = React.useState(false);
@@ -23,22 +21,7 @@ const Main = () => {
     }, []);
 
     return (
-        <Wrapper>
-            <Title>-: FlatList :-</Title>
-            <RowScroll
-                horizontal
-                pagingEnabled
-                showsHorizontalScrollIndicator={false}
-                data={DATA}
-                renderItem={items => (
-                    <RowItems>
-                        <SubTitle>{items.item.name}</SubTitle>
-                        <SubTitle>{items.item.des}</SubTitle>
-                    </RowItems>
-                )}
-                ItemSeparatorComponent={() => <Seperater></Seperater>}
-            />
-            <Title>-: ScrollView :-</Title>
+        <Wrapper style={{ backgroundColor: Colors.white }}>
             <Scroll
                 refreshControl={
                     <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />

@@ -1,10 +1,11 @@
+
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Main from "./src/screens/main";
 import Login from "./src/screens/login";
 import React from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Splash from "./src/screens/splash";
+import TabNav from './src/navigators/tabNav';
 
 export const AuthContext = React.createContext();
 
@@ -79,7 +80,7 @@ const App = () => {
         </>
         ):(
         <>
-        <Stack.Screen name="Main" component={Main} />
+        <Stack.Screen name="TabNav" component={TabNav} />
         </>)}
       </Stack.Navigator>
     </NavigationContainer>
