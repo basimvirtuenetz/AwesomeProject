@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native'
+import { Image, StyleSheet, View } from 'react-native'
 import React from 'react'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import Feed from '../screens/feed';
@@ -6,21 +6,55 @@ import Main from '../screens/main';
 import { Colors } from '../colors/colors';
 import Videos from '../screens/videos';
 import Content from '../screens/content';
-import { Header, Title } from '../components/styledComp';
+import { Header, Prof, Title } from '../components/styledComp';
+import { Fonts } from '../fonts/fonts';
+import Icon from 'react-native-vector-icons/EvilIcons'
+import LinearGradient from 'react-native-linear-gradient';
 
 const Top = createMaterialTopTabNavigator();
 const TopNav = () => {
+
     return (
         <View style={styles.container}>
-            <Header>
-                <Title>Welcome!</Title>
+            <Header style={{ padding: 6 }}>
+                <Image
+                    source={require('../images/defuser.png')}
+                    style={styles.img} />
+                <Prof >
+                    <Icon name={"camera"} size={22} color={Colors.Dblue} />
+                </Prof>
+                <LinearGradient
+                    colors={Colors.Zinc}
+                    style={[styles.pros, {
+                        position: 'absolute',
+                        top: 10,
+                        right: 40
+                    }]}>
+                </LinearGradient>
+                <LinearGradient
+                    colors={Colors.Zinc}
+                    style={[styles.pros, {
+                        position: 'absolute',
+                        top: 20,
+                        right: 30
+                    }]}>
+                </LinearGradient>
+                <LinearGradient
+                    colors={Colors.Zinc}
+                    style={[styles.pros, {
+                        position: 'absolute',
+                        top: 30,
+                        right: 20
+                    }]}>
+                    <Icon name={'sc-pinterest'} size={120} color={Colors.grey} />
+                </LinearGradient>
+                <Title style={{ marginHorizontal: 10 }}>Welcome!</Title>
             </Header>
             <Top.Navigator screenOptions={{
                 swipeEnabled: false,
-                tabBarPressColor: Colors.Dblue,
+                tabBarPressColor: Colors.Lblue,
                 tabBarStyle: {
                     width: '100%',
-                    alignSelf: 'center',
                 },
                 tabBarIndicatorStyle: {
                     width: 75,
@@ -33,7 +67,7 @@ const TopNav = () => {
                 },
                 tabBarLabelStyle: {
                     fontSize: 12,
-                    fontWeight: 'bold',
+                    fontFamily: Fonts.bold
                 },
                 tabBarActiveTintColor: Colors.white,
                 tabBarInactiveTintColor: Colors.grey
@@ -52,5 +86,22 @@ export default TopNav
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: Colors.white
+    },
+    img: {
+        width: 100,
+        height: 100,
+        alignSelf: 'flex-start',
+        borderRadius: 60,
+        marginHorizontal: 10
+    },
+    pros: {
+        width: 130,
+        height: 120,
+        borderRadius: 10,
+        margin: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        elevation: 8
     }
 })

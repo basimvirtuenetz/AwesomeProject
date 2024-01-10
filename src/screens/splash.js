@@ -1,28 +1,24 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text } from 'react-native'
 import React from 'react'
 import { Colors } from '../colors/colors'
+import { Fonts } from '../fonts/fonts'
+import Slsh from '../components/reuseablecomps/slsh'
 
 const Splash = () => {
     return (
-        <View style={styles.container}>
-            <Text style={styles.heading}>Welcome!</Text>
-        </View>
+        <Slsh>
+            <Text style={styles.heading}>Welcome !</Text>
+        </Slsh>
     )
 }
 
 export default Splash
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: Colors.Dblue,
-        justifyContent: 'center',
-        alignItems: "center"
-    },
     heading: {
         fontSize: 36,
         color: Colors.white,
         textAlign: 'center',
-        fontWeight: 'bold'
+        fontFamily: Fonts.bold
     }
 })

@@ -1,12 +1,12 @@
 export const DATA = [
     {
         id: 1,
-        name: 'Clothes',
+        name: 'Garments',
         des: 'Men',
     },
     {
         id: 2,
-        name: 'Clothes',
+        name: 'Garments',
         des: 'Women',
     },
     {
@@ -22,16 +22,16 @@ export const DATA = [
     {
         id: 5,
         name: 'Electronics',
-        des: 'LED / LCD, etc.',
+        des: 'LED / LCD etc.',
     },
     {
         id: 6,
-        name: 'LAYS',
-        des: 'ALL Flaver',
+        name: 'Snacks',
+        des: 'Lays/Wavy etc.',
     },
     {
         id: 7,
-        name: 'Jewwlary',
+        name: 'Jewellary',
         des: 'Gold / Artificial',
     },
 ];

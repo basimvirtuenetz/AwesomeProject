@@ -1,10 +1,11 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import React from 'react'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import Profile from '../screens/profile';
 import Info from '../screens/info';
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { Colors } from '../colors/colors';
+import { Fonts } from '../fonts/fonts';
 
 const DrawerNav = createDrawerNavigator();
 const Drawer = () => {
@@ -20,7 +21,6 @@ const Drawer = () => {
                     } else if (route.name === 'Info') {
                         iconName = 'user';
                     }
-
                     return (
                         <View
                             style={styles.iconView}>
@@ -40,7 +40,6 @@ const Drawer = () => {
                     );
                 },
                 drawerPosition: 'right',
-                drawerType: 'front',
                 drawerActiveBackgroundColor: Colors.white,
                 drawerActiveTintColor: Colors.Dblue,
                 drawerInactiveTintColor: Colors.white,
@@ -50,8 +49,7 @@ const Drawer = () => {
                     paddingLeft: 10,
                     marginVertical: 10,
                 },
-
-                drawerContentStyle: {
+                drawerStyle: {
                     paddingVertical: 30,
                     paddingHorizontal: 10,
                     backgroundColor: Colors.Lblue,
@@ -59,8 +57,9 @@ const Drawer = () => {
                     borderBottomLeftRadius: 40
                 },
                 drawerLabelStyle: {
-                    fontSize: 18,
-                    textAlign: 'center'
+                    fontSize: 20,
+                    textAlign: 'center',
+                    fontFamily: Fonts.bold
                 },
                 overlayColor: Colors.white,
             })}>

@@ -6,11 +6,12 @@ import { IconView, Title, Wrapper } from '../components/styledComp'
 
 const Profile = ({ navigation }) => {
     return (
-        <Wrapper>
-            <IconView onPress={() => navigation.toggleDrawer()}>
-                <Icon name={'three-bars'} size={20} color={Colors.black} />
+        <Wrapper style={{ flexDirection: 'row' }}>
+            <Title>Profile</Title>
+            <IconView onPress={() => navigation.toggleDrawer()}
+                style={{ position: 'absolute', top: 24, right: 24 }}>
+                <Icon name={'three-bars'} size={24} color={Colors.black} />
             </IconView>
-            <Title>Profile Screen</Title>
         </Wrapper>
     )
 }

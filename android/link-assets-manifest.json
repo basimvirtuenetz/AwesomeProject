@@ -1,0 +1,25 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/fonts/fonts.jsx",
+      "sha1": "881d3adea907e3b82dae427925fce86494a10ae4"
+    },
+    {
+      "path": "src/fonts/Genos-Bold.ttf",
+      "sha1": "9b2ae34734bfd2cfd5cff28d091d54cd97513b9f"
+    },
+    {
+      "path": "src/fonts/Genos-Italic.ttf",
+      "sha1": "36f7281d22413f4cd540822ffe875abd61e22f26"
+    },
+    {
+      "path": "src/fonts/Genos-Medium.ttf",
+      "sha1": "0bdd971fe1897613695d2a6117142b6dc8fc7873"
+    },
+    {
+      "path": "src/fonts/Genos-Regular.ttf",
+      "sha1": "70d7e81eab36b9f0ff8e45cc7c6708b8370b58bc"
+    }
+  ]
+}

@@ -1,14 +1,14 @@
 import React from 'react';
 import {
     Scroll,
-    Title,
     Wrapper,
-    Items,
     SubTitle,
+    Des
 } from '../components/styledComp';
 import { StyleSheet, RefreshControl } from 'react-native';
 import { DATA } from '../components/reuseablecomps/data';
 import { Colors } from '../colors/colors';
+import LinearGradient from 'react-native-linear-gradient';
 
 const Main = () => {
     const [refreshing, setRefreshing] = React.useState(false);
@@ -21,7 +21,7 @@ const Main = () => {
     }, []);
 
     return (
-        <Wrapper style={{ backgroundColor: Colors.white }}>
+        <Wrapper style={{ backgroundColor: Colors.white, marginBottom: 35 }}>
             <Scroll
                 refreshControl={
                     <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
@@ -29,10 +29,12 @@ const Main = () => {
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={styles.scrollItems}>
                 {DATA.map((data, index) => (
-                    <Items key={index}>
+                    <LinearGradient key={index}
+                        colors={Colors.Toad}
+                        style={styles.item}>
                         <SubTitle>{data.name}</SubTitle>
-                        <SubTitle>{data.des}</SubTitle>
-                    </Items>
+                        <Des>{data.des}</Des>
+                    </LinearGradient>
                 ))}
             </Scroll>
         </Wrapper>
@@ -45,5 +47,15 @@ const styles = StyleSheet.create({
     scrollItems: {
         flexDirection: 'row',
         flexWrap: 'wrap',
+        padding: 6
     },
+    item: {
+        width: 150,
+        height: 150,
+        borderRadius: 8,
+        margin: 4,
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        elevation: 8,
+    }
 });

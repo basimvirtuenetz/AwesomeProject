@@ -1,21 +1,21 @@
 import {Colors} from '../colors/colors';
 import styled from 'styled-components/native';
+import { Fonts } from '../fonts/fonts';
 
 export const Wrapper = styled.View({
   flex:1,
-  padding: 20,
+  padding: 15,
 });
 export const Header = styled.View({
   width:'100%',
   height:170,
-  padding:10,
   justifyContent:'flex-end'
 });
 export const Title = styled.Text({
-  fontSize: 26,
+  fontSize: 28,
   color: Colors.Dblue,
   marginVertical: 6,
-  fontWeight:'bold',
+  fontFamily:Fonts.bold
 });
 export const Scroll = styled.ScrollView({
   flex: 2,
@@ -31,9 +31,15 @@ export const Items = styled.View({
   elevation: '8',
 });
 export const SubTitle = styled.Text({
-  fontSize: 16,
+  fontSize: 22,
   color: Colors.Dblue,
-  fontWeight: 'bold',
+  fontFamily:Fonts.med,
+  textAlign:'center'
+});
+export const Des = styled.Text({
+  fontSize: 18,
+  color: Colors.cyan,
+  fontFamily:Fonts.reg,
   textAlign:'center'
 });
 export const RowScroll = styled.FlatList({
@@ -67,17 +73,22 @@ export const Input = styled.TextInput({
   paddingLeft: 20,
   elevation: '8',
   marginTop: 30,
+  fontSize:18,
+  fontFamily:Fonts.reg
 });
 export const Btn = styled.TouchableOpacity({
   width: 180,
   height: 60,
-  backgroundColor: Colors.white,
   borderRadius: 40,
   elevation: '8',
   marginVertical: 20,
   alignSelf:'center',
-  justifyContent:'center',
-  alignItems:'center'
+});
+export const BtnTxt = styled.Text({
+  fontSize: 22,
+  color: Colors.white,
+  fontFamily:Fonts.med,
+  textAlign:'center'
 });
 export const IconView = styled.Pressable({
   width:40,
@@ -85,21 +96,33 @@ export const IconView = styled.Pressable({
   justifyContent:"center",
   alignItems:'center'
 });
-export const Active = styled.View({
+
+export const ActiveBack =  styled.View({
+  width:45,
+  height:45,
+  borderRadius:60,
+  marginBottom:52,
+  justifyContent:"center",
+  alignItems:"center",
+  elevation:'8'
+});
+export const Lable = styled.Text({
+  fontSize:16,
+  fontFamily: Fonts.reg,
+  color:Colors.white,
+  position:'absolute',
+  bottom:30,
+  alignSelf:'center'
+});
+export const Prof = styled.TouchableOpacity({
   width:30,
   height:30,
   backgroundColor:Colors.white,
-  borderRadius:30,
+  borderRadius:40,
   justifyContent:'center',
   alignItems:'center',
-  elevation:'7'
+  elevation:'7',
+  position:'absolute',
+  top:88,
+  left:90
 });
-export const ActiveBack = styled.View({
-  width:60,
-  height:60,
-  backgroundColor:Colors.Dblue,
-  borderRadius:60,
-  marginBottom:30,
-  justifyContent:"center",
-  alignItems:"center",
-})

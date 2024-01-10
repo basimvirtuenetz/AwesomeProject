@@ -5,7 +5,7 @@ import { Title, Wrapper } from '../components/styledComp'
 const Info = () => {
     return (
         <Wrapper>
-            <Title>Info Screen</Title>
+            <Title>Info</Title>
         </Wrapper>
     )
 }
