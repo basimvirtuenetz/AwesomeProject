@@ -13,4 +13,5 @@ export const Colors = {
     cyan:"#19547b",
     Zinc: ["#eaeaea","#19547b" ],
     Toad: ["#ffffff","#cfd9df"],
+    trans: "rgba(0,0,0,0)"
 };
