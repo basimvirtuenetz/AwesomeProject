@@ -1,44 +1,29 @@
-import {Image, StyleSheet, View} from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 import React from 'react';
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Feed from '../screens/feed';
 import Main from '../screens/main';
-import {Colors} from '../colors/colors';
+import { Colors } from '../colors/colors';
 import Videos from '../screens/videos';
-import Content from '../screens/content';
-import {Header, Prof, Title} from '../components/styledComp';
-import {Fonts} from '../fonts/fonts';
+import { Header, Prof, Title } from '../components/styledComp';
+import { Fonts } from '../fonts/fonts';
 import Icon from 'react-native-vector-icons/EvilIcons';
 import LinearGradient from 'react-native-linear-gradient';
-import {launchImageLibrary} from 'react-native-image-picker';
+import { useSelector } from 'react-redux';
 
 const Top = createMaterialTopTabNavigator();
 const TopNav = () => {
-  const [imageUri, setImageUri] = React.useState();
-  const handleGallery = async () => {
-    try {
-      const result: any = await launchImageLibrary({
-        mediaType: 'photo',
-        maxWidth: 500,
-        maxHeight: 500,
-      });
-      result?.assets[0] ? setImageUri(result?.assets[0]?.uri) : null;
-    } catch (e) {
-      console.log(e);
-    }
-  };
+  const userData = useSelector((state: any) => state.user.Username);
+  const themeMode = useSelector((state: any) => state.theme.mode);
 
   return (
-    <View style={styles.container}>
-      <Header style={{padding: 6}}>
+    <View style={[styles.container, { backgroundColor: themeMode.background }]}>
+      <Header style={{ padding: 6 }}>
         <Image
-          source={imageUri ? {uri: imageUri} : require('../images/defuser.png')}
+          source={userData ? { uri: userData.url } : require('../images/defuser.png')}
           style={styles.img}
           resizeMode="cover"
         />
-        <Prof onPress={handleGallery} activeOpacity={0.8}>
-          <Icon name={'camera'} size={22} color={Colors.Dblue} />
-        </Prof>
         <LinearGradient
           colors={Colors.Zinc}
           style={[
@@ -69,36 +54,37 @@ const TopNav = () => {
               right: 20,
             },
           ]}>
-          <Icon name={'sc-pinterest'} size={120} color={Colors.grey} />
+          <Icon name={'sc-pinterest'} size={120} color={themeMode.text} />
         </LinearGradient>
-        <Title style={{marginHorizontal: 10}}>Welcome!</Title>
+        <Title style={{ marginHorizontal: 25, color: themeMode.text }}>Welcome!</Title>
       </Header>
       <Top.Navigator
         screenOptions={{
           tabBarPressColor: Colors.trans,
           tabBarStyle: {
+            backgroundColor: themeMode.background,
             width: '100%',
           },
           tabBarIndicatorStyle: {
-            width: 75,
+            width: 85,
             height: 30,
             position: 'absolute',
             bottom: 10,
-            left: 8,
+            left: 16,
             borderRadius: 18,
-            backgroundColor: Colors.Dblue,
+            backgroundColor: Colors.Lblue,
           },
           tabBarLabelStyle: {
             fontSize: 12,
             fontFamily: Fonts.bold,
           },
           tabBarActiveTintColor: Colors.white,
-          tabBarInactiveTintColor: Colors.grey,
+          tabBarInactiveTintColor: themeMode.text,
         }}>
         <Top.Screen name="Types" component={Main} />
         <Top.Screen name="Images" component={Feed} />
         <Top.Screen name="Videos" component={Videos} />
-        <Top.Screen name="Content" component={Content} />
+        {/* <Top.Screen name="Content" component={Content} /> */}
       </Top.Navigator>
     </View>
   );
@@ -116,7 +102,7 @@ const styles = StyleSheet.create({
     height: 100,
     alignSelf: 'flex-start',
     borderRadius: 60,
-    marginHorizontal: 10,
+    marginHorizontal: 20,
   },
   pros: {
     width: 130,

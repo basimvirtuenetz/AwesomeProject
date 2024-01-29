@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Dummy from '../screens/Dummy';
 import Details from '../screens/Details';
 import Header from '../components/reuseablecomps/Header';
@@ -15,7 +15,7 @@ const Stack = createNativeStackNavigator();
 const HomeStack = () => {
   return (
     <Stack.Navigator
-      screenOptions={({route}) => ({
+      screenOptions={({ route }) => ({
         statusBarTranslucent: true,
         statusBarColor: 'transparent',
         header: () =>

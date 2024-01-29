@@ -1,12 +1,14 @@
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import {Fonts} from '../fonts/fonts';
-import {Colors} from '../colors/colors';
+import { Fonts } from '../fonts/fonts';
+import { Colors } from '../colors/colors';
+import { useSelector } from 'react-redux';
 
 const About = () => {
+  const themeMode = useSelector((state: any) => state.theme.mode)
   return (
-    <ScrollView style={styles.Wrapper} showsVerticalScrollIndicator={false}>
-      <Text style={styles.content}>
+    <ScrollView style={[styles.Wrapper, { backgroundColor: themeMode.background }]} showsVerticalScrollIndicator={false}>
+      <Text style={[styles.content, { color: themeMode.text }]}>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id quibusdam
         minima quis quae consequuntur eligendi asperiores tenetur earum iure?
         Reiciendis error dolor officiis minus similique quo, itaque aliquid quos
@@ -24,7 +26,7 @@ const About = () => {
         type specimen book. It has survived not only five centuries, but also
         the leap into electronic typesetting, remaining essentially unchanged.
       </Text>
-      <Text style={styles.content}>
+      <Text style={[styles.content, { color: themeMode.text }]}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt quos
         corrupti placeat atque necessitatibus labore quam molestias mollitia
         dignissimos tempora! Perferendis sint beatae repellendus? Illum quis
@@ -38,7 +40,7 @@ const About = () => {
         passages, and more recently with desktop publishing software like Aldus
         PageMaker including versions of Lorem Ipsum.
       </Text>
-      <Text style={styles.content}>
+      <Text style={[styles.content, { color: themeMode.text }]}>
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever
         since the 1500s, when an unknown printer took a galley of type and
@@ -49,7 +51,7 @@ const About = () => {
         with desktop publishing software like Aldus PageMaker including versions
         of Lorem Ipsum.
       </Text>
-      <Text style={styles.content}>
+      <Text style={[styles.content, { color: themeMode.text }]}>
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever
         since the 1500s, when an unknown printer took a galley of type and
@@ -60,7 +62,7 @@ const About = () => {
         with desktop publishing software like Aldus PageMaker including versions
         of Lorem Ipsum.
       </Text>
-      <Text style={styles.content}>
+      <Text style={[styles.content, { color: themeMode.text }]}>
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. Lorem Ipsum has been the industry's standard dummy text ever
         since the 1500s, when an unknown printer took a galley of type and

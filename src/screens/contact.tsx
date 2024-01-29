@@ -1,10 +1,12 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 const Contact = () => {
+    const themeMode = useSelector((state: any) => state.theme.mode)
     return (
-        <View>
-            <Text>Contact</Text>
+        <View style={{ flex: 1, backgroundColor: themeMode.background }}>
+            <Text style={{ color: themeMode.text }}>Contact</Text>
         </View>
     )
 }

@@ -1,12 +1,14 @@
-import {StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import {Colors} from '../colors/colors';
-import {Fonts} from '../fonts/fonts';
+import { Colors } from '../colors/colors';
+import { Fonts } from '../fonts/fonts';
+import { useSelector } from 'react-redux';
 
 const Cart = () => {
+  const themeMode = useSelector((state: any) => state.theme.mode)
   return (
-    <View style={styles.Wrapper}>
-      <Text style={styles.content}>User's Cart</Text>
+    <View style={[styles.Wrapper, { backgroundColor: themeMode.background }]}>
+      <Text style={[styles.content, { color: themeMode.text }]}>User's Cart</Text>
     </View>
   );
 };

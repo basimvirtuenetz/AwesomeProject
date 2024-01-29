@@ -1,6 +1,6 @@
-import {Colors} from '../colors/colors';
+import { Colors } from '../colors/colors';
 import styled from 'styled-components/native';
-import {Fonts} from '../fonts/fonts';
+import { Fonts } from '../fonts/fonts';
 
 export const Wrapper = styled.View({
   flex: 1,
@@ -70,10 +70,11 @@ export const Input = styled.TextInput({
   backgroundColor: Colors.white,
   color: Colors.Dblue,
   borderRadius: 10,
-  paddingLeft: 20,
+  paddingHorizontal: 20,
   elevation: '8',
   fontSize: 18,
   fontFamily: Fonts.reg,
+  marginVertical: 14
 });
 export const Btn = styled.TouchableOpacity({
   width: 180,

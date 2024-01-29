@@ -1,15 +1,15 @@
 import React from 'react';
-import {View, Text, StyleSheet, StatusBar} from 'react-native';
-import {Btn, BtnTxt, Title, Wrapper} from '../components/styledComp';
+import { View, Text, StyleSheet, StatusBar } from 'react-native';
+import { Btn, BtnTxt, Title, Wrapper } from '../components/styledComp';
 import LinearGradient from 'react-native-linear-gradient';
-import {Colors} from '../colors/colors';
+import { Colors } from '../colors/colors';
 
 export type Props = {
   name: string;
   baselevl?: number;
 };
 
-const Dummy = ({name = 'Basim', baselevl = 0}) => {
+const Dummy = ({ name = 'Basim', baselevl = 0 }) => {
   const [level, setLevel] = React.useState(baselevl);
 
   const onIncrement = () => {
@@ -28,8 +28,8 @@ const Dummy = ({name = 'Basim', baselevl = 0}) => {
       <View>
         <Btn onPress={onIncrement}>
           <LinearGradient
-            start={{x: 0, y: 0}}
-            end={{x: 1, y: 0}}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
             colors={[Colors.Lblue, Colors.Dblue]}
             style={{
               width: 180,
@@ -44,8 +44,8 @@ const Dummy = ({name = 'Basim', baselevl = 0}) => {
         </Btn>
         <Btn onPress={onDecrement}>
           <LinearGradient
-            start={{x: 0, y: 0}}
-            end={{x: 1, y: 0}}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
             colors={[Colors.Lblue, Colors.Dblue]}
             style={{
               width: 180,

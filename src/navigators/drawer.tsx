@@ -1,19 +1,21 @@
-import {StyleSheet, View} from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import React from 'react';
-import {createDrawerNavigator} from '@react-navigation/drawer';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import Profile from '../screens/profile';
 import Info from '../screens/info';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {Colors} from '../colors/colors';
-import {Fonts} from '../fonts/fonts';
+import { Colors } from '../colors/colors';
+import { Fonts } from '../fonts/fonts';
+import { useSelector } from 'react-redux';
 
 const DrawerNav = createDrawerNavigator();
 const Drawer = () => {
+  const themeMode = useSelector((state: any) => state.theme.mode)
   return (
     <DrawerNav.Navigator
-      screenOptions={({route}) => ({
+      screenOptions={({ route }) => ({
         headerShown: false,
-        drawerIcon: ({focused}) => {
+        drawerIcon: ({ focused }) => {
           let iconName;
 
           if (route.name === 'Profile') {
@@ -53,7 +55,7 @@ const Drawer = () => {
           textAlign: 'center',
           fontFamily: Fonts.bold,
         },
-        overlayColor: Colors.white,
+        overlayColor: themeMode.background,
       })}>
       <DrawerNav.Screen name="Profile" component={Profile} />
       <DrawerNav.Screen name="Info" component={Info} />

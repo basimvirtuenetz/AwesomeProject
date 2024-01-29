@@ -3,6 +3,7 @@ import React from 'react'
 import { Colors } from '../colors/colors'
 import { Fonts } from '../fonts/fonts'
 import { useNavigation } from '@react-navigation/native'
+import { useSelector } from 'react-redux'
 
 export interface User {
     name: string,
@@ -38,38 +39,39 @@ User.push(User2);
 console.log("Current Users", User);
 
 const Videos = () => {
+    const themeMode = useSelector((state: any) => state.theme.mode)
     const navigation = useNavigation();
     return (
-        <ScrollView style={[styles.container, { backgroundColor: Colors.white }]}>
+        <ScrollView style={[styles.container, { backgroundColor: themeMode.background }]}>
             <View style={styles.wrapper}>
-                <Text style={styles.Title}>Student :</Text>
+                <Text style={[styles.Title, { color: themeMode.text }]}>Student :</Text>
                 <View style={styles.contentContainer}>
-                    <Text style={styles.content} >Student Name :{User1.name}</Text>
+                    <Text style={[styles.content, { color: themeMode.text }]} >Student Name :{User1.name}</Text>
                 </View>
                 <View style={styles.contentContainer}>
-                    <Text style={styles.content}>Student Age :{User1.age}</Text>
+                    <Text style={[styles.content, { color: themeMode.text }]}>Student Age :{User1.age}</Text>
                 </View>
                 <View style={styles.contentContainer}>
-                    <Text style={styles.content}>Student Id: {User1.studentId}</Text>
+                    <Text style={[styles.content, { color: themeMode.text }]}>Student Id: {User1.studentId}</Text>
                 </View>
                 <View style={styles.contentContainer}>
-                    <Text style={styles.content}>Student Class : {User1.grade}</Text>
+                    <Text style={[styles.content, { color: themeMode.text }]}>Student Class : {User1.grade}</Text>
                 </View>
-                <Text style={styles.Title}>Lecturar :</Text>
+                <Text style={[styles.Title, { color: themeMode.text }]}>Lecturar :</Text>
                 <View style={styles.contentContainer}>
-                    <Text style={styles.content}>Leacturar Name :{User2.name}</Text>
-                </View>
-                <View style={styles.contentContainer}>
-                    <Text style={styles.content}>Leaturar Age :{User2.age}</Text>
+                    <Text style={[styles.content, { color: themeMode.text }]}>Leacturar Name :{User2.name}</Text>
                 </View>
                 <View style={styles.contentContainer}>
-                    <Text style={styles.content}>Lecturar Rank : {User2.rank}</Text>
+                    <Text style={[styles.content, { color: themeMode.text }]}>Leaturar Age :{User2.age}</Text>
                 </View>
                 <View style={styles.contentContainer}>
-                    <Text style={styles.content}>Lecturar Subj : {User2.subjects}</Text>
+                    <Text style={[styles.content, { color: themeMode.text }]}>Lecturar Rank : {User2.rank}</Text>
+                </View>
+                <View style={styles.contentContainer}>
+                    <Text style={[styles.content, { color: themeMode.text }]}> Lecturar Subj: {User2.subjects}</Text>
                 </View>
             </View>
-        </ScrollView>
+        </ScrollView >
     )
 }
 
