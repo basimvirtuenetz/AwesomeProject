@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   View,
   Alert,
+  ActivityIndicator,
 } from 'react-native';
 import React from 'react';
 import {Colors} from '../../colors/colors';
@@ -17,7 +18,7 @@ import Pfp from 'react-native-vector-icons/EvilIcons';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 import storage from '@react-native-firebase/storage';
-import {UseDispatch, useDispatch, useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {setUSerData} from '../../Redux/Slices/UserSlice';
 
 const Header = ({title, backbtn, profile, titleTxt}) => {
@@ -25,15 +26,18 @@ const Header = ({title, backbtn, profile, titleTxt}) => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const userDate = useSelector(state => state.user.Username);
+  const [isloading, setIsloading] = React.useState(false);
   const handleGallery = async () => {
     await launchImageLibrary(
       {
         mediaType: 'photo',
         maxWidth: 500,
         maxHeight: 500,
+        quality: 0.8,
       },
       result => {
         if (result.errorCode || result.didCancel) {
+          setIsloading(false);
           return console.log('You should handle errors or user cancellation!');
         }
         const img = result.assets[0];
@@ -44,6 +48,7 @@ const Header = ({title, backbtn, profile, titleTxt}) => {
         uploadTask.on(
           'state_changed',
           snapshot => {
+            setIsloading(true);
             var progress =
               (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
             if (progress == 100) {
@@ -62,7 +67,9 @@ const Header = ({title, backbtn, profile, titleTxt}) => {
                 .get();
               if (imageUrl.exists) {
                 dispatch(setUSerData({...imageUrl.data()}));
+                setIsloading(false);
               } else {
+                setIsloading(false);
               }
             });
           },
@@ -104,18 +111,26 @@ const Header = ({title, backbtn, profile, titleTxt}) => {
       {profile ? (
         <View style={styles.ProfView}>
           <View style={styles.pfp}>
-            <Image
-              source={
-                userDate
-                  ? {uri: userDate.url}
-                  : require('../../images/defuser.png')
-              }
-              style={styles.img}
-              resizeMode="cover"
-            />
-            <TouchableOpacity style={styles.Pfpicon} onPress={handleGallery}>
-              <Pfp name={'camera'} size={22} color={Colors.Dblue} />
-            </TouchableOpacity>
+            {isloading ? (
+              <ActivityIndicator color={Colors.Lblue} size={50} />
+            ) : (
+              <>
+                <Image
+                  source={
+                    userDate
+                      ? {uri: userDate.url}
+                      : require('../../images/defuser.png')
+                  }
+                  style={styles.img}
+                  resizeMode="cover"
+                />
+                <TouchableOpacity
+                  style={styles.Pfpicon}
+                  onPress={handleGallery}>
+                  <Pfp name={'camera'} size={22} color={Colors.Dblue} />
+                </TouchableOpacity>
+              </>
+            )}
           </View>
         </View>
       ) : null}

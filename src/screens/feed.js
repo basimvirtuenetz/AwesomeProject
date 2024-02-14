@@ -9,7 +9,7 @@ import {useSelector} from 'react-redux';
 const Feed = () => {
   const themeMode = useSelector(state => state.theme.mode);
   return (
-    <Wrapper style={{backgroundColor: themeMode.background, marginBottom: 35}}>
+    <Wrapper style={{backgroundColor: themeMode.background}}>
       <RowScroll
         showsVerticalScrollIndicator={false}
         data={DATA}
@@ -31,7 +31,7 @@ export default Feed;
 const styles = StyleSheet.create({
   container: {
     padding: 6,
-    paddingBottom: 18,
+    paddingBottom: 54,
   },
   item: {
     width: 150,

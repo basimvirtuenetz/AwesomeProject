@@ -1,24 +1,25 @@
-import { StyleSheet, View } from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import TopNav from './topNav';
 import Drawer from './drawer';
 import Icon from 'react-native-vector-icons/AntDesign';
-import { Colors } from '../colors/colors';
-import { ActiveBack, Lable } from '../components/styledComp';
+import {Colors} from '../colors/colors';
+import {ActiveBack, Lable} from '../components/styledComp';
 import Contact from '../screens/contact';
 import Search from '../screens/search';
 import Post from '../screens/post';
+import Header from '../components/reuseablecomps/Header';
 
 const Tab = createBottomTabNavigator();
 
 const TabNav = () => {
   return (
     <Tab.Navigator
-      screenOptions={({ route }) => ({
+      screenOptions={({route}) => ({
         tabBarHideOnKeyboard: true,
         headerShown: false,
-        tabBarIcon: ({ focused }) => {
+        tabBarIcon: ({focused}) => {
           let iconName;
           let bg;
 
@@ -43,7 +44,7 @@ const TabNav = () => {
               {focused ? (
                 <>
                   <View>
-                    <ActiveBack style={{ backgroundColor: bg }}>
+                    <ActiveBack style={{backgroundColor: bg}}>
                       <Icon name={iconName} size={22} color={Colors.white} />
                     </ActiveBack>
                     <Lable>{route.name}</Lable>

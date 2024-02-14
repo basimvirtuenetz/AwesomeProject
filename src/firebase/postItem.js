@@ -8,4 +8,9 @@ export const PostItem = async (title, price, descr) => {
     price,
     descr,
   });
+  await firestore().collection('posts').add({
+    title,
+    price,
+    descr,
+  });
 };

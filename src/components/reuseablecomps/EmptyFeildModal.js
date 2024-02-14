@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   ModalInner: {
     width: '80%',
     height: 150,
-    backgroundColor: Colors.Dblue,
+    backgroundColor: Colors.white,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontFamily: Fonts.bold,
     textAlign: 'center',
-    color: Colors.white,
+    color: Colors.Dblue,
   },
   btntxt: {
     fontSize: 18,

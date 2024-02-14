@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {Btn, Input, Title, BtnTxt} from '../components/styledComp';
 import {Colors} from '../colors/colors';
@@ -30,10 +30,11 @@ const Post = () => {
   };
   return (
     <KeyboardAwareScrollView
-      contentContainerStyle={[
-        styles.wrapper,
-        {backgroundColor: themeMode.background},
-      ]}>
+      style={[styles.wrapper, {backgroundColor: themeMode.background}]}
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={{
+        padding: 20,
+      }}>
       <DoneModal
         visible={isVisible1}
         backprs={() => setIsVisible1(false)}
@@ -44,7 +45,9 @@ const Post = () => {
         backprs={() => setIsVisible(false)}
         close={() => setIsVisible(false)}
       />
-      <Title style={{alignSelf: 'center', color: themeMode.text}}>Post</Title>
+      <Title style={{alignSelf: 'center', color: themeMode.text}}>
+        Add Post
+      </Title>
       <Input
         placeholder="Title"
         placeholderTextColor={Colors.Dblue}
@@ -75,8 +78,8 @@ const Post = () => {
           end={{x: 1, y: 0}}
           colors={[Colors.Lblue, Colors.Dblue]}
           style={{
-            width: 300,
-            height: 60,
+            width: '100%',
+            height: '100%',
             borderRadius: 40,
             alignSelf: 'center',
             justifyContent: 'center',
@@ -98,7 +101,5 @@ const styles = StyleSheet.create({
   },
   wrapper: {
     flex: 1,
-    padding: 20,
-    backgroundColor: Colors.white,
   },
 });
