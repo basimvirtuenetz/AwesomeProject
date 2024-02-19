@@ -5,9 +5,10 @@ import {DATA} from '../components/reuseablecomps/data';
 import {Colors} from '../colors/colors';
 import LinearGradient from 'react-native-linear-gradient';
 import {useSelector} from 'react-redux';
+
 const Main = () => {
-  const [refreshing, setRefreshing] = React.useState(false);
-  const themeMode = useSelector(state => state.theme.mode);
+  const [refreshing, setRefreshing] = React.useState<boolean>(false);
+  const themeMode = useSelector((state: any) => state.theme.mode);
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
     setTimeout(() => {

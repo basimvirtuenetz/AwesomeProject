@@ -10,12 +10,12 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {useSelector} from 'react-redux';
 
 const Post = () => {
-  const [title, setTitle] = React.useState('');
-  const [price, setPrice] = React.useState('');
-  const [descr, setDescr] = React.useState('');
-  const [isVisible, setIsVisible] = React.useState(false);
-  const [isVisible1, setIsVisible1] = React.useState(false);
-  const themeMode = useSelector(state => state.theme.mode);
+  const [title, setTitle] = React.useState<string>('');
+  const [price, setPrice] = React.useState<string>('');
+  const [descr, setDescr] = React.useState<string>('');
+  const [isVisible, setIsVisible] = React.useState<boolean>(false);
+  const [isVisible1, setIsVisible1] = React.useState<boolean>(false);
+  const themeMode = useSelector((state: any) => state.theme.mode);
 
   const handlePost = () => {
     if (!title || !price || !descr) {

@@ -1,12 +1,4 @@
-import {
-  Image,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  TouchableNativeFeedback,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {PostType} from '../../apis/post.interface';
 import {Fonts} from '../../fonts/fonts';
@@ -41,11 +33,10 @@ const PostCard: React.FC<CardProps> = ({
   return (
     <View
       style={{
-        width: '80%',
-        padding: 10,
+        width: '100%',
+        padding: 20,
         backgroundColor: '#FFF',
         elevation: 7,
-        borderRadius: 10,
         marginVertical: '4%',
       }}>
       <Text
@@ -55,25 +46,36 @@ const PostCard: React.FC<CardProps> = ({
           color: Colors.Dblue,
           textAlign: 'center',
           marginBottom: '4%',
+          letterSpacing: -0.333,
         }}>
         {post.title}
       </Text>
       {post.image ? (
         <Image
           source={{uri: post.image}}
-          style={{width: 200, height: 150, alignSelf: 'center'}}
+          resizeMode="contain"
+          style={{
+            width: 200,
+            height: 150,
+            alignSelf: 'center',
+            marginVertical: 15,
+          }}
         />
       ) : null}
       <Text
         style={{
           fontFamily: Fonts.med,
-          fontSize: 16,
-          color: Colors.Lblue,
-          textAlign: 'center',
+          fontSize: 14,
+          color: Colors.black,
         }}>
         {post.description}
       </Text>
-      <View style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-evenly',
+          marginVertical: 15,
+        }}>
         <TouchableOpacity
           activeOpacity={0.7}
           onPress={() => {
@@ -81,12 +83,11 @@ const PostCard: React.FC<CardProps> = ({
             setPostID(post.id!);
           }}
           style={{
-            width: 90,
-            height: 30,
-            backgroundColor: Colors.red,
-            borderRadius: 10,
+            width: 110,
+            height: 40,
+            backgroundColor: Colors.cyan,
+            borderRadius: 20,
             justifyContent: 'center',
-            margin: '3%',
           }}>
           <BtnTxt>Edit</BtnTxt>
         </TouchableOpacity>
@@ -94,12 +95,11 @@ const PostCard: React.FC<CardProps> = ({
           activeOpacity={0.7}
           onPress={() => handleDelete(post.id!)}
           style={{
-            width: 90,
-            height: 30,
+            width: 110,
+            height: 40,
             backgroundColor: Colors.red,
-            borderRadius: 10,
+            borderRadius: 20,
             justifyContent: 'center',
-            margin: '3%',
           }}>
           <BtnTxt>Delete</BtnTxt>
         </TouchableOpacity>

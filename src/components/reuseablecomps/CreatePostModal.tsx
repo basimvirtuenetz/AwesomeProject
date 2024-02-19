@@ -33,7 +33,8 @@ const CreatePost: React.FC<Props> = ({visible, close, post, setPosts}) => {
     <Modal
       visible={visible}
       onRequestClose={close}
-      animationType="fade"
+      animationType="slide"
+      statusBarTranslucent
       transparent>
       <View style={styles.ModalView}>
         <View style={styles.ModalInner}>
@@ -51,7 +52,7 @@ const CreatePost: React.FC<Props> = ({visible, close, post, setPosts}) => {
             style={{
               verticalAlign: 'top',
               padding: 10,
-              height: 150,
+              height: 180,
             }}
             numberOfLines={6}
             onChangeText={(description: string) =>
@@ -75,36 +76,31 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
-    backgroundColor: 'rgba(0,0,0,0.3)',
+    backgroundColor: 'rgba(0,0,0,0.5)',
   },
   ModalInner: {
-    width: '80%',
-    backgroundColor: Colors.white,
+    width: '100%',
+    backgroundColor: Colors.Dblue,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
-    borderRadius: 10,
+    padding: 15,
+    borderRadius: 12,
     elevation: 7,
   },
-  txt: {
+  btntxt: {
     fontSize: 24,
     fontFamily: Fonts.bold,
     textAlign: 'center',
     color: Colors.white,
   },
-  btntxt: {
-    fontSize: 18,
-    fontFamily: Fonts.bold,
-    textAlign: 'center',
-    color: Colors.white,
-  },
   btn: {
-    width: '50%',
+    width: '100%',
     height: 50,
-    backgroundColor: Colors.Lblue,
-    borderRadius: 30,
+    backgroundColor: Colors.cyan,
+    borderRadius: 25,
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 20,
+    elevation: 7,
   },
 });

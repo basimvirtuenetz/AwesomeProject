@@ -16,11 +16,11 @@ import EmptyFeildModal from '../components/reuseablecomps/EmptyFeildModal';
 import {useSelector} from 'react-redux';
 
 const Phone = () => {
-  const [number, setNumber] = React.useState();
-  const [confirm, setConfirm] = React.useState(false);
-  const [code, setCode] = React.useState('');
+  const [number, setNumber] = React.useState<string>('');
+  const [confirm, setConfirm] = React.useState<boolean>(false);
+  const [code, setCode] = React.useState<string>('');
   const [isVisible, setIsVisible] = React.useState(false);
-  const themeMode = useSelector(state => state.theme.mode);
+  const themeMode = useSelector((state: any) => state.theme.mode);
 
   const handleSignin = async () => {
     if (!number) {
@@ -56,7 +56,7 @@ const Phone = () => {
             enterKeyHint="next"
             cursorColor={Colors.Dblue}
             value={number}
-            onChangeText={text => setNumber(text)}
+            onChangeText={(text: string) => setNumber(text)}
           />
           <Btn onPress={handleSignin}>
             <LinearGradient
@@ -98,7 +98,7 @@ const Phone = () => {
             keyboardType="numeric"
             cursorColor={Colors.Dblue}
             value={code}
-            onChangeText={text => setCode(text)}
+            onChangeText={(text: any) => setCode(text)}
           />
 
           <Btn onPress={ConfrimCode}>

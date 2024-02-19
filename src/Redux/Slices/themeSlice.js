@@ -1,6 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
-import DARK_MODE from '../colorScheme/dark.json';
-import LIGHT_MODE from '../colorScheme/light.json';
+import DARK_MODE from '../colorScheme/dark';
+import LIGHT_MODE from '../colorScheme/light';
 
 const themeSlice = createSlice({
   name: 'theme',

@@ -19,10 +19,10 @@ import {useDispatch, useSelector} from 'react-redux';
 const OnBoard = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
-  const themeMode = useSelector(state => state.theme.mode);
+  const themeMode = useSelector((state: any) => state.theme.mode);
   return (
     <KeyboardAwareScrollView
-      style={[styles.container, {backgroundColor: themeMode.background}]}>
+      style={{flex: 1, backgroundColor: themeMode.background}}>
       <Wrapper>
         <Header style={{alignItems: 'center'}}>
           <Title style={{color: themeMode.text}}>Awesome Project</Title>
@@ -60,7 +60,10 @@ const OnBoard = () => {
             <BtnTxt>Create Acc</BtnTxt>
           </LinearGradient>
         </Btn>
-        <Btn onPress={() => GoogleLogin(data => dispatch(setUSerData(data)))}>
+        <Btn
+          onPress={() =>
+            GoogleLogin((data: any) => dispatch(setUSerData(data)))
+          }>
           <LinearGradient
             start={{x: 0, y: 0}}
             end={{x: 1, y: 0}}

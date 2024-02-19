@@ -7,7 +7,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import {useSelector} from 'react-redux';
 
 const Feed = () => {
-  const themeMode = useSelector(state => state.theme.mode);
+  const themeMode = useSelector((state: any) => state.theme.mode);
   return (
     <Wrapper style={{backgroundColor: themeMode.background}}>
       <RowScroll
@@ -15,10 +15,10 @@ const Feed = () => {
         data={DATA}
         numColumns={2}
         contentContainerStyle={styles.container}
-        renderItem={items => (
+        renderItem={({item}) => (
           <LinearGradient colors={Colors.Toad} style={styles.item}>
-            <SubTitle>{items.item.name}</SubTitle>
-            <Des>{items.item.des}</Des>
+            <SubTitle>{item.name}</SubTitle>
+            <Des>{item.des}</Des>
           </LinearGradient>
         )}
       />

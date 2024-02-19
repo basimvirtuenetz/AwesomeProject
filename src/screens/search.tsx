@@ -6,21 +6,26 @@ import {Fonts} from '../fonts/fonts';
 import {Colors} from '../colors/colors';
 import {Input} from '../components/styledComp';
 
+interface PostType {
+  title: string;
+  descr: string;
+  price: string;
+}
 const Search = () => {
-  const themeMode = useSelector(state => state.theme.mode);
-  const [data, setData] = React.useState([]);
-  const [searchitem, setSearchitem] = React.useState('');
-  const [searchData, setSearchdata] = React.useState([]);
+  const themeMode = useSelector((state: any) => state.theme.mode);
+  const [data, setData] = React.useState<PostType[]>([]);
+  const [searchitem, setSearchitem] = React.useState<string>('');
+  const [searchData, setSearchdata] = React.useState<PostType[]>([]);
 
-  const search = () => {
-    return data == searchitem;
-  };
+  // const search = () => {
+  //   return data == searchitem;
+  // };
 
   React.useEffect(() => {
     const unsubscribe = firestore()
       .collection('posts')
       .onSnapshot(snapshot => {
-        const postData = [];
+        const postData: any = [];
         snapshot.forEach(doc => {
           postData.push({
             key: doc.id,
@@ -37,7 +42,7 @@ const Search = () => {
       .collection('posts')
       .where('title', '==', searchitem)
       .onSnapshot(Items => {
-        const matchingItems = [];
+        const matchingItems: any = [];
         Items.forEach(doc => {
           matchingItems.push({
             key: doc.id,

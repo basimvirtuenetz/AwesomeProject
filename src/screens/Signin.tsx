@@ -9,25 +9,27 @@ import {
 } from '../components/styledComp';
 import {Colors} from '../colors/colors';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import {Alert, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {useNavigation} from '@react-navigation/native';
-import {LoginUser, newUser} from '../firebase/EmailSignin';
+import {newUser} from '../firebase/EmailSignin';
 import EmptyFeildModal from '../components/reuseablecomps/EmptyFeildModal';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import {setUSerData} from '../Redux/Slices/UserSlice';
 
-const Login = () => {
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const [isVisible, setIsVisible] = React.useState(false);
-  const themeMode = useSelector(state => state.theme.mode);
-  const navigation = useNavigation();
-
-  const handleSignin = () => {
-    if (!email || !password) {
+const Signin = () => {
+  const [email, setEmail] = React.useState<string>('');
+  const [password, setPassword] = React.useState<string>('');
+  const [isVisible, setIsVisible] = React.useState<boolean>(false);
+  const [Username, setName] = React.useState<string>('');
+  const dispatch = useDispatch();
+  const themeMode = useSelector((state: any) => state.theme.mode);
+  const handleSignin = async (data: any) => {
+    if (!email || !password || !Username) {
       setIsVisible(true);
     } else {
-      LoginUser(email, password);
+      newUser(Username, email, password);
+      dispatch(setUSerData(data));
     }
   };
   return (
@@ -40,10 +42,18 @@ const Login = () => {
       />
       <Wrapper>
         <Header>
-          <Title style={{color: themeMode.text}}>Login your account!</Title>
+          <Title style={{color: themeMode.text}}>Create your account!</Title>
         </Header>
         <Input
-          placeholder="Email-Address"
+          placeholder="User-name here"
+          placeholderTextColor={Colors.Dblue}
+          enterKeyHint="next"
+          cursorColor={Colors.Dblue}
+          value={Username}
+          onChangeText={text => setName(text)}
+        />
+        <Input
+          placeholder="Email-Address here"
           placeholderTextColor={Colors.Dblue}
           enterKeyHint="next"
           cursorColor={Colors.Dblue}
@@ -52,7 +62,7 @@ const Login = () => {
         />
 
         <Input
-          placeholder="Password"
+          placeholder="Password here"
           placeholderTextColor={Colors.Dblue}
           enterKeyHint="next"
           keyboardType="visible-password"
@@ -82,7 +92,7 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signin;
 const styles = StyleSheet.create({
   container: {
     flex: 1,

@@ -67,7 +67,7 @@ const Contact = () => {
         </Btn>
       </View>
       {isError ? (
-        <Text style={{color: Colors.Dblue}}>Error getting Posts</Text>
+        <Text style={{color: themeMode.text}}>Error getting Posts</Text>
       ) : (
         posts.map(post => (
           <PostCard
